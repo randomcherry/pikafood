@@ -89,6 +89,6 @@ def adminLogIn():
         elif not password:
             return render_template("debug.html", "Warning: invalid password.")
         else:
-            
+            if db.execute("SELECT EXISTS (SELECT 1 FROM admins WHERE name=?", name)[0][name]
     else:
         return render_template("adminLogIn.html")
