@@ -78,3 +78,7 @@ def viewRequests():
     else:
         requests = db.execute("SELECT id, name, food, upvotes, anonymous FROM requests")
         return render_template("viewRequests.html", requests=requests)
+
+@app.route("/adminLogIn", methods=["GET", "POST"])
+def adminLogIn():
+    return render_template("adminLogIn.html")
