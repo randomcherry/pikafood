@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+<div class="container py-5 action-container d-flex align-content-center">
+    <div>
+        <h2 class="text-center action-title"><b>What would you like to do?</b></h2>
+        <div class="mb-3 justify-content-center">
+            <table class="action-form d-flex justify-content-center">
+                <tr>
+                    <td>
+                        <a href="/submitRequest"><button style="width: 175px;">Submit request</button></a>
+                    </td>
+                    <td>
+                        <a href="/viewRequests"><button style="width: 175px;">View requests</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/viewFinished"><button style="width: 175px;">View finished</button></a>
+                    </td>
+                    <td>
+                        <a href="/rateComment"><button style="width: 175px;">Rate/comment</button></a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="d-flex justify-content-center">
+            <button name="action" value="login" style="width: 175px;">Login as admin</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

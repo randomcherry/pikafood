@@ -1,0 +1,136 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+}
+input[type="radio"] {
+  margin-right: 10px; /* Adjust this value */
+}
+
+.action-form {
+  width: 100%;
+  border-spacing: 10px;
+}
+
+td {
+  padding: 10px;
+  width: 50%;
+  margin: auto;
+  vertical-align: center;
+}
+
+.action-title {
+  margin-bottom: 20px;
+}
+
+button {
+  border-radius: 10px;
+  border: 0px;
+  color: black;
+  background-color: #FFBD59;
+  padding: 10px;
+}
+
+.action-container {
+  width: 90vw;
+  height: 80vh;
+  border: 2px solid #A6A6A6;
+  border-radius: 20px;
+  margin-top: 5vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #a6a6a6;
+}
+
+hr {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: -10px;
+}
+
+a {
+  color: #a6a6a6;
+  text-decoration: none;
+}
+
+input[type="text"] {
+  border-color: #a6a6a6;
+  border-radius: 5px;
+  width: 300px;
+}
+
+input::placeholder {
+  font-size: 12px;
+}
+
+.inputText {
+  margin-bottom: 4px;
+}
+
+.submitRequest {
+  width: 100vw;
+  height: 30 vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.submitDetail {
+  margin: 10px;
+}
+
+.checkAnonymous {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remainAnonymous {
+  text-align: center;
+  margin: 20px;
+
+}
+
+.submitButton {
+  font-weight: normal;
+  border-radius: 200px;
+  width: 150px;
+}
+
+.requestsContainer {
+  width: 90vw;
+  display: flex;
+  margin: auto;
+}
+
+.requestsTable {
+  table-layout: fixed;
+  text-align: center;
+}
+
+th {
+  text-align: center;
+  background-color: #d9d9d9;
+}
+
+.upvoteContainer {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#upvote {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.tableItem {
+  vertical-align: middle;
+}

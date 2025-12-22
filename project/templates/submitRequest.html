@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Submit request
+{% endblock %}
+
+{% block main %}
+
+    <div class="top-bar">
+        <a href="/">Return to homepage</a>
+        <p>Submit a request</p>
+    </div>
+    <hr>
+
+    <div class="submitRequest">
+        <form action="/submitRequest" method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <div class="submitDetail">
+                            <p class="inputText">Name</p>
+                            <input name="name" type="text" placeholder="Enter your name" required>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="submitDetail">
+                            <p class="inputText">Food</p>
+                            <input name="food" type="text" placeholder="Suggest a food item" required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="submitDetail">
+                            <p class="inputText">Additional</p>
+                            <input name="additional" type="text" placeholder="Any special requests (opt.)">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="submitDetail">
+                            <p class="inputText">Recipe</p>
+                            <input name="recipe" type="text" placeholder="Suggest a recipe (opt.)">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="remainAnonymous">
+                <div class="checkAnonymous">
+                    <input type="checkbox" name="anonymous" value="anonymous" id="anonymous" style="margin-right: 7px; font-size:">
+                    <label for="anonymous" style="font-size: 15px;">Remain anonymous</label>
+                </div>
+                <label style="color: #a6a6a6; font-size: 12px;" for="anonymous">Your name will not show on the requests page</label>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <button class="submitButton" type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

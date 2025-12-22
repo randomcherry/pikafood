@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Submit request
+{% endblock %}
+
+{% block main %}
+
+    <div class="top-bar">
+        <a href="/">Return to homepage</a>
+        <p>View requests</p>
+    </div>
+    <hr>
+
+    <div class="requestsContainer">
+        <table class="table table-bordered requestsTable">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col" style="background-color: #d9d9d9; width: 10%; font-weight: normal;">#</th>
+                    <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Name</th>
+                    <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Food</th>
+                    <th scope="col" style="width: 23%; background-color: #d9d9d9; font-weight: normal;">Upvotes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                    <tr class="tableItem">
+                        <td>{{ request.id }}</td>
+                        {% if request.anonymous == 1 %}
+                            <td>Anonymous</td>
+                        {% else %}
+                            <td>{{ request.name }}</td>
+                        {% endif %}
+                        <td>{{ request.food }}</td>
+                        <td>
+                            <div style="width: 100%; display: flex; justify-content: center;">
+                                <div class="upvoteContainer">
+                                    {{ request.upvotes }}
+                                    <form action="/viewRequests" method="POST">
+                                        <button type="submit" name="upvote" value="{{ request.id }}" id="upvote">🆙</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
