@@ -81,4 +81,14 @@ def viewRequests():
 
 @app.route("/adminLogIn", methods=["GET", "POST"])
 def adminLogIn():
-    return render_template("adminLogIn.html")
+    name = request.form.get("name")
+    password = request.form.get("password")
+    if request.method == "POST":
+        if not name:
+            return render_template("debug.html", "Warning: invalid username.")
+        elif not password:
+            return render_template("debug.html", "Warning: invalid password.")
+        else:
+            
+    else:
+        return render_template("adminLogIn.html")
