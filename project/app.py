@@ -85,13 +85,16 @@ def adminLogIn():
     password = request.form.get("password")
     if request.method == "POST":
         if not name:
-            return render_template("debug.html", "Warning: invalid username.")
+            return render_template("debug.html", text1="Warning: invalid username.")
         elif not password:
-            return render_template("debug.html", "Warning: invalid password.")
+            return render_template("debug.html", text1="Warning: invalid password.")
         else:
             if db.execute("SELECT COUNT(*) AS n FROM admins WHERE name=?", name)[0][n] == 1:
-                if db.execute("SELECT )
+                if db.execute("SELECT password FROM admins WHERE name=?", name)[0][password] == password:
+                    return render_template("debug.html", text1="success")
+                else:
+                    return render_template("debug.html", text1="failed")
             else:
-                return render_template("debug.html", "Warning: invalid username.")
+                return render_template("debug.html", text1="Warning: invalid username.")
     else:
         return render_template("adminLogIn.html")
