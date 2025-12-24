@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit requests
+{% endblock %}
+
+{% block main %}
+    <div class="top-bar">
+        <div>
+            <a href="/">Return to homepage</a>
+            <a href="/addAdmin" style="margin-left: 45px;">Add admin</a>
+        </div>
+        <p>Edit requests</p>
+    </div>
+    <hr>
+
+    <div style="width: 100vw; display: flex; justify-content: center; margin-top: 20px;">
+        <div class="editRequests">
+            <div class="editInput">
+                <form action="/editRequests" method="post">
+                    <div class="submitDetail">
+                        <p class="inputText">Remove request</p>
+                        <input name="removeRequest" type="number" placeholder="Enter request ID">
+                    </div>
+                    <div class="submitDetail" style="margin-top: 20px;">
+                        <p class="inputText">Finish request</p>
+                        <input name="finishRequest" type="number" placeholder="Enter request ID">
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <button style="font-weight: normal; width: 100px; border-radius: 50px; margin-top: 15px; font-size: 15px;" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="requestsTables">
+                <h5 style="margin-bottom: 10px;">Requests</h5>
+                <table class="table table-bordered requestsTable">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" style="background-color: #d9d9d9; width: 10%; font-weight: normal;">#</th>
+                            <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Name</th>
+                            <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Food</th>
+                            <th scope="col" style="width: 23%; background-color: #d9d9d9; width: 10%; font-weight: normal;">🆙</th>
+                            <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Additional</th>
+                            <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Recipe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in requests %}
+                            <tr class="tableItem">
+                                <td>{{ request.id }}</td>
+                                {% if request.anonymous == 1 %}
+                                    <td>Anonymous</td>
+                                {% else %}
+                                    <td>{{ request.name }}</td>
+                                {% endif %}
+                                <td>{{ request.food }}</td>
+                                <td>{{ request.upvotes }}</td>
+                                <td>{{ request.additional }}</td>
+                                <td>{{ request.recipe }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!--Finished table-->
+
+                <h5 style="margin-bottom: 10px;">Finished</h5>
+                <table class="table table-bordered requestsTable">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" style="background-color: #d9d9d9; width: 10%; font-weight: normal;">#</th>
+                            <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Name</th>
+                            <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Food</th>
+                            <th scope="col" style="width: 23%; background-color: #d9d9d9; width: 10%; font-weight: normal;">🆙</th>
+                            <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Additional</th>
+                            <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Recipe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in finished %}
+                            <tr class="tableItem">
+                                <td>{{ request.requestID }}</td>
+                                {% if request.anonymous == 1 %}
+                                    <td>Anonymous</td>
+                                {% else %}
+                                    <td>{{ request.name }}</td>
+                                {% endif %}
+                                <td>{{ request.food }}</td>
+                                <td>{{ request.upvotes }}</td>
+                                <td>{{ request.additional }}</td>
+                                <td>{{ request.recipe }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- Comments table-->
+
+                <h5 style="margin-bottom: 10px;">Comments</h5>
+                <table class="table table-bordered requestsTable">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" style="background-color: #d9d9d9; width: 10%; font-weight: normal;">C #</th>
+                            <th scope="col" style="background-color: #d9d9d9; width: 10%; font-weight: normal;">R #</th>
+                            <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for comment in comments %}
+                            <tr class="tableItem">
+                                <td>{{ comment.commentID }}</td>
+                                <td>{{ comment.requestID }}</td>
+                                <td>{{ comment.comment }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

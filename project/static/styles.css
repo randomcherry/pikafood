@@ -59,7 +59,7 @@ a {
   text-decoration: none;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"], input[type="number"] {
   border-color: #a6a6a6;
   border-radius: 5px;
   width: 300px;
@@ -140,4 +140,37 @@ th {
   justify-content: center;
   align-items: center;
   margin-top: 44px;
+}
+
+.editRequests {
+  display: flex;
+  width: 90vw;
+  justify-content: space-between;
+}
+
+.editInput {
+  margin-right: 10px;
+}
+
+.requestsTables {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewFinished {
+  width: 90vw;
+}
+
+.rateComment {
+  display: flex;
+  justify-content: center;
+}
+
+#rating {
+  border-color: #a6a6a6;
+  border-radius: 5px;
+  width: 300px;
+  background-color: white;
+  height: 35px;
+  text-align: center;
 }

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add admin
+{% endblock %}
+
+{% block main %}
+    <div class="top-bar">
+        <div>
+            <a href="/">Return to homepage</a>
+            <a href="/editRequests" style="margin-left: 45px;">Edit requests</a>
+        </div>
+        <p>Add admin</p>
+    </div>
+    <hr>
+
+    <div class="adminLogIn">
+        <form action="/addAdmin" method="post">
+            <div class="submitDetail" style="margin-bottom: 20px;">
+                <p class="inputText">Username</p>
+                <input name="name" type="text" required placeholder="Enter username">
+            </div>
+            <div class="submitDetail" style="margin-bottom: 20px;">
+                <p class="inputText">Password</p>
+                <input name="password" type="password" required placeholder="Enter password">
+            </div>
+            <div class="submitDetail" style="margin-bottom: 20px;">
+                <p class="inputText">Admin key</p>
+                <input name="adminKey" type="password" required placeholder="Enter admin key provided by admin">
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <button type="submit" style="font-weight: normal; width: 125px; border-radius: 50px; margin-top: 25px;">Register</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

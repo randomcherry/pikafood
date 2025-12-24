@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    View finished
+{% endblock %}
+
+{% block main %}
+
+    <div class="top-bar">
+        <a href="/">Return to homepage</a>
+        <p>View finished</p>
+    </div>
+    <hr>
+
+    <div style="width: 100vw; display: flex; justify-content: center; margin-top: 30px;">
+        <div class="viewFinished">
+            <h5 style="margin-bottom: 10px;">Finished</h5>
+            <table class="table table-bordered requestsTable">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" style="background-color: #d9d9d9; width: 10%; font-weight: normal;">#</th>
+                        <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Name</th>
+                        <th scope="col" style="background-color: #d9d9d9; font-weight: normal;">Food</th>
+                        <th scope="col" style="width: 23%; background-color: #d9d9d9; width: 10%; font-weight: normal;">🆙</th>
+                        <th scope="col" style="background-color: #d9d9d9; font-weight: normal; width: 10%;">🌟</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for request in finished %}
+                        <tr class="tableItem">
+                            <td>{{ request.requestID }}</td>
+                            {% if request.anonymous == 1 %}
+                                <td>Anonymous</td>
+                            {% else %}
+                                <td>{{ request.name }}</td>
+                            {% endif %}
+                                <td>{{ request.food }}</td>
+                            <td>{{ request.upvotes }}</td>
+                            {% if request.rating == None %}
+                                <td>/</td>
+                            {% else %}
+                                <td>{{ request.rating }}/5</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+

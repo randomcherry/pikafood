@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Submit request
+{% endblock %}
+
+{% block main %}
+
+    <div class="top-bar">
+        <a href="/">Return to homepage</a>
+        <p>Admin log in</p>
+    </div>
+    <hr>
+
+    <div class="rateComment">
+        <form action="/rateComment" method="post">
+            <div class="submitDetail" style="margin-bottom: 20px;">
+                <p class="inputText">Request number</p>
+                <input name="requestNumber" type="number" placeholder="Request number from view finished" required>
+            </div>
+            <div class="submitDetail">
+                <p class="inputText">Rating</p>
+                <select name="rating" id="rating" style="font-size: 12px; color: #a6a6a6; margin-bottom: 15px;">
+                    <option value="">Select a rating</option>
+                    <option value="1">🌟</option>
+                    <option value="2">🌟🌟</option>
+                    <option value="3">🌟🌟🌟</option>
+                    <option value="4">🌟🌟🌟🌟</option>
+                    <option value="5">🌟🌟🌟🌟🌟</option>
+                </select>
+            </div>
+            <div class="submitDetail">
+                <p class="inputText">Comment</p>
+                <input name="comment" type="text" placeholder="Enter any comments">
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <button style="font-weight: normal; width: 125px; border-radius: 50px; margin-top: 20px;" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
