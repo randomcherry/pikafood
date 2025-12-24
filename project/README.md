@@ -69,4 +69,16 @@ The template for all the HTML pages.
 
 `rateComment.html`
 
-This page contains a form that allows the user to enter the ID of a finished request and give it a rating with a select menu and/or a comment. The rating can be seen in the view finished page, and it is the average of all ratings.
+This page contains a form that allows the user to enter the ID of a finished request and give it a rating with a select menu and/or a comment. The rating can be seen in the view finished page, and it is the average of all ratings. An error message is returned if the request ID is invalid or neither a rating nor a comment is given.
+
+`submitRequest.html`
+
+This page contains a form where the user is able to submit requests, which are stored in the requests table. As seen above in the database section, the user provides provides the same information. An error message is returned if their name or food is not entered.
+
+`viewFinished.html`
+
+This page simply shows the table of finished requests along with the average rating of that recipe.
+
+`viewRequests.html`
+
+This page shows the table unfinished requests, allowing users to upvote requests that they would like to try as well. An error message is returned if the user tries to upvote the same request more than once.
