@@ -41,7 +41,7 @@ def submitRequest():
         if not name:
             return render_template("debug.html", text1="invalid name.")
         elif not food:
-            return render_template("debugh.html", text1="invalid food.")
+            return render_template("debug.html", text1="invalid food.")
         else:
             if not additional:
                 additional = "NULL"
