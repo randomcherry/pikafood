@@ -20,4 +20,5 @@ Starting from the templates:
 All webpages except the homepage include a very simple navigation bar on the top to allow the user to return to the homepage.
 
 `addAdmin.html`
+
 A simple page containing a form for which an admin can register new admins. The user is required to fill in a username, password and the admin key. The admin key is changeable (it is now pikafoodAdminHuhu), and should be provided by an admin to prevent everyone from just registering to become an admin.
