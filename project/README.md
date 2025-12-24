@@ -40,12 +40,13 @@ This table is similar to the requests table with a new column, rating. This tabl
 Contains 3 columns: commentID, requestID, comment.
 This table keeps track of comments given to finished recipes.
 
+### Templates and app.py
 All webpages except the homepage include a very simple navigation bar on the top to allow the user to return to the homepage.
 
 `addAdmin.html`
 
-A simple page containing a form for which an admin can register new admins. The user is required to fill in a username, password and the admin key. The admin key is changeable (it is now pikafoodAdminHuhu), and should be provided by an admin to prevent everyone from just registering to become an admin.
+A simple page containing a form for which an admin can register new admins. The user is required to fill in a username, password and the admin key. The admin key is changeable (it is now pikafoodAdminHuhu), and should be provided by an admin to prevent everyone from just registering to become an admin. An error message is returned if no username or password is provided, the admin key is incorrect or there is a duplicate username.
 
 `adminLogin.html`
 
-Another simple page containing a log in form for admins. It is first checked 
+Another simple page containing a log in form for admins, where provided information is checked against the admins table in `project.db`. The username is first checked if it exists, then the password is checked. An error message is returned if no username or password is provided, the username does not exist or the password does not match.
