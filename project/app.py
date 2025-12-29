@@ -1,6 +1,10 @@
 import os
 
-from cs50 import SQL
+# from cs50 import SQL
+from sqlalchemy import create_engine, select
+from sqlalchemy import Table, Column, MetaData
+from sqlalchemy.sql import text
+
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
 from flask_session import Session
 
@@ -15,7 +19,10 @@ Session(app)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///project.db")
+# db = SQL("sqlite:///project.db")
+db = 'sqlite:///project.db'
+meta = MetaData()
+conn = engine.connect()
 
 @app.after_request
 def after_request(response):
@@ -173,3 +180,6 @@ def rateComment():
             return redirect("/viewFinished")
     else:
         return render_template("rateComment.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
