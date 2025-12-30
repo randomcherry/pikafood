@@ -20,7 +20,9 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Configure CS50 Library to use SQLite database
 # db = SQL("sqlite:///project.db")
+
 db = 'sqlite:///project.db'
+engine = create_engine(db)
 meta = MetaData()
 conn = engine.connect()
 
