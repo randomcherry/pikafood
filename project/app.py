@@ -127,6 +127,7 @@ def editRequests():
     if request.method == "POST":
         removeRequest = request.form.get("removeRequest")
         finishRequest = request.form.get("finishRequest")
+        removeFinished = request.form.get("removeFinished")
         if removeRequest:
             conn.execute(text("DELETE FROM requests WHERE id=:id"), {"id": removeRequest})
             conn.commit()
@@ -139,6 +140,9 @@ def editRequests():
                 )
                 conn.execute(text("DELETE FROM requests WHERE id=:id"), {"id": finishRequest})
                 conn.commit()
+        if removeFinished:
+            conn.execute(text("DELETE FROM finished WHERE requestID=:id"), {"id": removeFinished})
+            conn.commit()
         return redirect("/editRequests")
     elif request.method == "GET":
         requests = conn.execute(text("SELECT id, name, food, upvotes, anonymous, additional, recipe FROM requests")).mappings().all()
