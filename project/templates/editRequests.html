@@ -52,11 +52,7 @@
                         {% for request in requests %}
                             <tr class="tableItem">
                                 <td>{{ request.id }}</td>
-                                {% if request.anonymous == 1 %}
-                                    <td>Anonymous</td>
-                                {% else %}
-                                    <td>{{ request.name }}</td>
-                                {% endif %}
+                                <td>{{ request.name }}</td>
                                 <td>{{ request.food }}</td>
                                 <td>{{ request.upvotes }}</td>
                                 <td>{{ request.additional }}</td>
@@ -84,11 +80,7 @@
                         {% for request in finished %}
                             <tr class="tableItem">
                                 <td>{{ request.requestID }}</td>
-                                {% if request.anonymous == 1 %}
-                                    <td>Anonymous</td>
-                                {% else %}
-                                    <td>{{ request.name }}</td>
-                                {% endif %}
+                                <td>{{ request.name }}</td>
                                 <td>{{ request.food }}</td>
                                 <td>{{ request.upvotes }}</td>
                                 <td>{{ request.additional }}</td>
